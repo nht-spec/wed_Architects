@@ -12,7 +12,9 @@ import Register from '../features/Auth/components/Register';
 import ContactFeature from '../features/ContactFeature';
 import ProjectFeature from '../features/ProjectFeature';
 import './style.scss';
-Header.propTypes = {};
+Header.propTypes = {
+  
+};
 
 function Header(props) {
   const [open, setOpen] = useState(false);
@@ -58,7 +60,7 @@ const handleClose = () => {
         aria-labelledby="form-dialg-title"
         >
         <DialogContent>
-           <Register/> 
+           <Register closeDialog={handleClose}/> 
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

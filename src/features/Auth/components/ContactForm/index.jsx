@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import emailjs from 'emailjs-com';
+import { useSnackbar } from 'notistack';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -12,16 +13,16 @@ ContactForm.propTypes = {
 };
 
 function ContactForm(props) {
+    const {enqueueSnackbar}= useSnackbar();
     const schema = yup.object().shape({
-     fullname: yup.string().required('Please enter your name').test('should has at least two words','Please enter 2 word', (value) =>{
+     fullname: yup.string().required('Please enter your full name').test('should has at least two words','Please enter 2 or more characters', (value) =>{
          console.log('Value', value)
          return value.split(' ').length >=2}),
-     email: yup.string().required('Please enter your email').email('Please enter valid email'),
-     submit: yup.string().required('please enter your submit'),
-     comment: yup.string().required('please enter your comment'),
+     email: yup.string().required('Please enter your email').email('Invalid email'),
+     submit: yup.string().required('Please enter a title'),
+     comment: yup.string().required('Please enter a comment'),
 
  });
-
     const form= useForm({
     defaultValues: {
       fullname: '',
@@ -37,6 +38,7 @@ const handleSubmit = (values,e)=>{
     emailjs.sendForm('service_8zq9tjp', 'template_sgne9kd', e.target, 'user_AhgypaaKySTp3K69XkY5P')
       .then((result) => {
           console.log(result.text);
+          enqueueSnackbar('Thanks for contacting us, we will contact you as soon as possible', {variant:'info'})
       }, (error) => {
           console.log(error.text);
       });
@@ -54,7 +56,7 @@ const handleSubmit = (values,e)=>{
                <li><InputField className='input__name ' name="fullname" label='full name' form={form}/></li>
                <li><InputField className='input__gmail' name="email" label='email' form={form}/></li>
                <li><InputField className='input__submit' name="submit" label='submit' form={form}/></li>
-               <li><InputField className='input__comment' name="comment" label='commnet' form={form}/></li>  
+               <li><InputField className='input__comment' name="comment" label='comment' form={form}/></li>  
                <button className='input__btn'>Send Message</button>               
            </ul>
        </form>
