@@ -2,9 +2,6 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { makeStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import React, { useState } from 'react';
@@ -15,12 +12,6 @@ import Register from '../features/Auth/components/Register';
 import ContactFeature from '../features/ContactFeature';
 import ProjectFeature from '../features/ProjectFeature';
 import './style.scss';
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
 Header.propTypes = {};
 
 function Header(props) {
@@ -33,7 +24,6 @@ const handleClickOpen = () => {
 const handleClose = () => {
   setOpen(false);
 };
-  const classes = useStyles();
     return (
       <div>
         <div className='header__nav'>
@@ -60,14 +50,15 @@ const handleClose = () => {
                 <Route path='/contact' component={ContactFeature} exact/>
         </div>
         <div className='register__form'>
-        <Dialog open={open} onClose={handleClose}
+        <Dialog 
+        open={open} 
+        onClose={handleClose}
         disableEscapeKeyDown
-        disableBackdropClick>
-        <DialogTitle >Log in</DialogTitle>
+        disableBackdropClick
+        aria-labelledby="form-dialg-title"
+        >
         <DialogContent>
-          <DialogContentText>
-           <Register/>
-          </DialogContentText>
+           <Register/> 
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

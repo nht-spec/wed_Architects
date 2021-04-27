@@ -1,12 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import emailjs from 'emailjs-com';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import InputField from '../../../../components/form-control/InputField';
 import './style.scss';
-import emailjs from 'emailjs-com';
-import { LinearProgress } from '@material-ui/core';
 
 ContactForm.propTypes = {
     onSubmit: PropTypes.func,
@@ -32,7 +31,7 @@ function ContactForm(props) {
     },
     resolver: yupResolver(schema),
 });
-const handleSubmit = async (values,e)=>{
+const handleSubmit = (values,e)=>{
     e.preventDefault();
 
     emailjs.sendForm('service_8zq9tjp', 'template_sgne9kd', e.target, 'user_AhgypaaKySTp3K69XkY5P')
@@ -44,22 +43,19 @@ const handleSubmit = async (values,e)=>{
 
     const {onSubmit}= props;
     if(onSubmit){
-      await onSubmit(values);
+     onSubmit(values);
     }
-    form.reset();
+    form.reset(); 
 };
-    const {isSubmitting}= form.formState;
-
     return (
         <div>
-            {isSubmitting && <LinearProgress/>}
        <form onSubmit={form.handleSubmit(handleSubmit)}>
            <ul className='input__list'>
                <li><InputField className='input__name ' name="fullname" label='full name' form={form}/></li>
                <li><InputField className='input__gmail' name="email" label='email' form={form}/></li>
                <li><InputField className='input__submit' name="submit" label='submit' form={form}/></li>
                <li><InputField className='input__comment' name="comment" label='commnet' form={form}/></li>  
-               <button disabled={isSubmitting} className='input__btn'>Send Message</button>
+               <button className='input__btn'>Send Message</button>               
            </ul>
        </form>
         </div>
