@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.slide__list{
+    position: relative;
+    &>h2{
+        // display: flex;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        margin-bottom: 32%;
+        color:white;
+        font-family: "Segoe UI",Arial,sans-serif;
+        font-weight: 400;
+        letter-spacing: 4px;
+        font-size: 32px;
+        line-height: 1.5;
+    }
+}
