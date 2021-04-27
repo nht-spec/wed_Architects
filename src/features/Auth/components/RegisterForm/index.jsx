@@ -10,7 +10,7 @@ import PasswordField from '../../../../components/form-control/PasswordField';
 import './style.scss'
 
 const useStyles =makeStyles(theme=>({
-    root:   {paddingTop: theme.spacing(4)},
+    root:   {paddingTop: theme.spacing(2)},
     avatar:{
         margin:'0 auto',
         backgroundColor: theme.palette.secondary.main,
