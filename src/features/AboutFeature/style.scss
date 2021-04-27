@@ -19,3 +19,12 @@
     font-size: 15px;
     line-height: 1.5;
 }
+
+@media(min-width: 740px) and (max-width:1023px){
+    .about_feature{
+        overflow: scroll;
+        max-height: 971px;
+        display: inline-block;
+    }
+    
+}

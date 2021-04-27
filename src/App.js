@@ -1,4 +1,4 @@
-import {Route} from 'react-router';
+import { Route } from 'react-router';
 import ContaintHeader from './containt';
 import AboutFeature from './features/AboutFeature';
 import ContactFeature from './features/ContactFeature';
@@ -12,6 +12,7 @@ function App() {
       <Route path='/'component={ProjectFeature} exact/>
       <Route path='/'component={AboutFeature} exact/>
       <Route path='/'component={ContactFeature} exact/>
+ 
     </div>
   );
 }
