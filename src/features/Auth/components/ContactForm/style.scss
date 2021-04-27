@@ -29,3 +29,16 @@
     background-color: #ccc;
     color: black;
 }
+@media (min-width: 740px) and (max-width:1023px){
+    .input__btn{
+        margin-top: 10px;
+    }
+    .input__list{  
+        &>li{
+            padding: 0;
+            &>p{
+            margin-top: 0;
+            }
+        }
+    }
+}

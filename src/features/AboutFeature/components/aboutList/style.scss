@@ -40,3 +40,29 @@
     color: black;
     background-color: #ccc;
 }
+@media(min-width: 740px) and (max-width:1023px){
+    .about__list{
+    margin: 20px 33px;
+    list-style-type: none;
+    display: flex;
+    filter: grayscale(75%);
+    flex-direction: row;
+    flex-wrap: wrap;
+    &>li{
+        width: 50%;
+        padding: 10px 15px 0 0;}
+    }
+    .about__contact{
+        width: 100%;
+        border-style: unset;
+        background-color: #f1f1f1;
+        font-weight: 500;
+        margin-bottom: 10px;
+        
+   }
+}
+// mobile
+@media(max-width: 740px){  
+ 
+
+}

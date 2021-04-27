@@ -13,7 +13,7 @@ import ContactFeature from '../features/ContactFeature';
 import ProjectFeature from '../features/ProjectFeature';
 import './style.scss';
 Header.propTypes = {
-  
+
 };
 
 function Header(props) {
@@ -27,7 +27,7 @@ const handleClose = () => {
   setOpen(false);
 };
     return (
-      <div>
+   
         <div className='header__nav'>
             <h2 className='font letter'><span className='font bran__title'>BR</span>
             <NavLink className='font' to='/'>Architects</NavLink></h2>
@@ -50,9 +50,9 @@ const handleClose = () => {
                 <Route path='/project' component={ProjectFeature} exact/>
                 <Route path='/about' component={AboutFeature} exact/>
                 <Route path='/contact' component={ContactFeature} exact/>
-        </div>
+        
         <div className='register__form'>
-        <Dialog 
+                <Dialog 
         open={open} 
         onClose={handleClose}
         disableEscapeKeyDown
@@ -68,8 +68,9 @@ const handleClose = () => {
           </Button>
         </DialogActions>
       </Dialog>
-        </div>
       </div>
+    </div>
+      
     );
 };
 export default Header;
