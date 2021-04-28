@@ -22,10 +22,11 @@
 @media (min-width: 740px) and (max-width:1023px){
     .slide__title{
         z-index: 0;
-        top: 227px;
-        left: 295px;
+        top: 223px;
+        left: 270px;
         &>h1{
             padding: 15px 15px;
+            font-size: 40px;
         }
     }
 }
